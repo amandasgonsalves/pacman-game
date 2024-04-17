@@ -20,9 +20,6 @@ public class GhostChase : GhostBehavior
     {
         switch (ghost.name)
         {
-            case "Ghost_Blinky":
-                BlinkyGulosa(other);
-                break;
             case "Ghost_Pinky":
                 MovimentaPinky(other);
                 break;
@@ -35,34 +32,6 @@ public class GhostChase : GhostBehavior
         }
     }
 
-    
-    private void BlinkyGulosa(Collider2D other)
-    {
-        Node node = other.GetComponent<Node>();
-
-        // Do nothing while the ghost is frightened
-        if (node != null && enabled && !ghost.frightened.enabled)
-        {
-            Vector2 direction = Vector2.zero;
-            float minDistance = float.MaxValue;
-
-            // Find the available direction that moves closet to pacman
-            foreach (Vector2 availableDirection in node.availableDirections)
-            {
-
-                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y);
-                float distance = (ghost.target.position - newPosition).sqrMagnitude;
-
-                if (distance < minDistance)
-                {
-                    direction = availableDirection;
-                    minDistance = distance;
-                }
-            }
-
-            ghost.movement.SetDirection(direction);
-        }
-    }
 
     private void Heuristica(Collider2D other, Func<Vector3, Vector3, Vector3> calculateTargetPosition)
     {
