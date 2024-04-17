@@ -12,12 +12,11 @@ public class GhostChase : GhostBehavior
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Chase(other);
+        OpcoesGhosts(other);
     }
 
 
-
-    public void Chase(Collider2D other)
+    public void OpcoesGhosts(Collider2D other)
     {
         switch (ghost.name)
         {
