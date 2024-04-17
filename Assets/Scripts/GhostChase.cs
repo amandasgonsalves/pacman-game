@@ -20,6 +20,9 @@ public class GhostChase : GhostBehavior
     {
         switch (ghost.name)
         {
+            case "Ghost_Blinky":
+                GulosaBlinky(other);
+                break;
             case "Ghost_Pinky":
                 MovimentaPinky(other);
                 break;
@@ -29,6 +32,35 @@ public class GhostChase : GhostBehavior
             case "Ghost_Clyde":
                 MovimentaClyde(other);
                 break;
+        }
+    }
+
+    private void GulosaBlinky(Collider2D other)
+    {
+        Node node = other.GetComponent<Node>();
+
+        // Do nothing while the ghost is frightened
+        if (node != null && enabled && !ghost.frightened.enabled)
+        {
+            Vector2 direction = Vector2.zero;
+            float minDistance = float.MaxValue;
+
+            // Find the available direction that moves closet to pacman
+            foreach (Vector2 availableDirection in node.availableDirections)
+            {
+                // If the distance in this direction is less than the current
+                // min distance then this direction becomes the new closest
+                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y);
+                float distance = (ghost.target.position - newPosition).sqrMagnitude;
+
+                if (distance < minDistance)
+                {
+                    direction = availableDirection;
+                    minDistance = distance;
+                }
+            }
+
+            ghost.movement.SetDirection(direction);
         }
     }
 
