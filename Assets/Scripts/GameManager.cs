@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public int Lives => lives;
     public int Score => score;
 
+    private const string ScorePlayerPrefsKey = "PlayerScore";
+
     private void Awake()
     {
         if (Instance != null)
@@ -32,118 +34,131 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start() //funcao quando se da start
+    private void Start()
     {
         NewGame();
     }
 
-    private void Update() //funcao para atualizar o jogo caso o jogador perca todas as vidas
+    private void Update()
     {
-        if (lives <= 0 && Input.anyKeyDown) {
+        if (lives <= 0 && Input.anyKeyDown)
+        {
             NewGame();
         }
     }
 
-    private void NewGame() //funcao para iniciar o jogo
+    private void NewGame()
     {
         SetScore(0);
         SetLives(3);
         NewRound();
     }
 
-    private void NewRound() //funcao quando o jogador perde uma vida
+    private void NewRound()
     {
         gameOverText.enabled = false;
 
-        foreach (Transform pellet in pellets) {
-            pellet.gameObject.SetActive(true); //pellet se mantem inalterados
+        foreach (Transform pellet in pellets)
+        {
+            pellet.gameObject.SetActive(true);
         }
 
         ResetState();
     }
 
-    private void ResetState() //funcao para resetar a posicao do pacman e dos fantasmas
+    private void ResetState()
     {
-        for (int i = 0; i < ghosts.Length; i++) {
+        for (int i = 0; i < ghosts.Length; i++)
+        {
             ghosts[i].ResetState();
         }
 
         pacman.ResetState();
     }
 
-    private void GameOver() //funcao caso o jogador perca todas as vidas
+    private void GameOver()
     {
         gameOverText.enabled = true;
 
-        for (int i = 0; i < ghosts.Length; i++) {
+        for (int i = 0; i < ghosts.Length; i++)
+        {
             ghosts[i].gameObject.SetActive(false);
         }
 
         pacman.gameObject.SetActive(false);
     }
 
-    private void SetLives(int lives) //funcao para marcar as vidas
+    private void SetLives(int lives)
     {
         this.lives = lives;
         livesText.text = "x" + lives.ToString();
     }
 
-    private void SetScore(int score) //funcao para marcar a pontuacao
+    private void SetScore(int score)
     {
         this.score = score;
         scoreText.text = score.ToString().PadLeft(2, '0');
+
+        // Salvar pontuação
+        PlayerPrefs.SetInt(ScorePlayerPrefsKey, score);
+        PlayerPrefs.Save();
     }
 
-    public void PacmanEaten() //funcao caso o pacman seja comido
+    public void PacmanEaten()
     {
         pacman.DeathSequence();
 
-        SetLives(lives - 1); //perde uma vida
+        SetLives(lives - 1);
 
-        if (lives > 0) {
-            Invoke(nameof(ResetState), 3f); //se nao acabar todas as vidas, reseta a posicao do pacman e dos fantasmas depois de 3 segundos
-        } else {
-            GameOver(); //se acabar as vidas, acaba o jogo
+        if (lives > 0)
+        {
+            Invoke(nameof(ResetState), 3f);
+        }
+        else
+        {
+            GameOver();
         }
     }
 
-    public void GhostEaten(Ghost ghost) //funcao caso um fantasma seja comido
+    public void GhostEaten(Ghost ghost)
     {
         int points = ghost.points * ghostMultiplier;
-        SetScore(score + points); //incremento de pontos
+        SetScore(score + points);
 
-        ghostMultiplier++; //multiplicador de pontos dos fantasmas
+        ghostMultiplier++;
     }
 
-    public void PelletEaten(Pellet pellet) //funcao para comer os pelleta
+    public void PelletEaten(Pellet pellet)
     {
-        pellet.gameObject.SetActive(false);//faz o pellet sumir pois foi comido
+        pellet.gameObject.SetActive(false);
 
-        SetScore(score + pellet.points);//incrementa a pontuacao
+        SetScore(score + pellet.points);
 
         if (!HasRemainingPellets())
         {
             pacman.gameObject.SetActive(false);
-            Invoke(nameof(NewRound), 3f); //novo round comeca
+            Invoke(nameof(NewRound), 3f);
         }
     }
 
     public void PowerPelletEaten(PowerPellet pellet)
     {
-        for (int i = 0; i < ghosts.Length; i++) {
+        for (int i = 0; i < ghosts.Length; i++)
+        {
             ghosts[i].frightened.Enable(pellet.duration);
         }
 
         PelletEaten(pellet);
-        CancelInvoke(nameof(ResetGhostMultiplier)); //cancela o invoke caso o tempo do powerpellet nao tenha acabado e outro seja comido
-        Invoke(nameof(ResetGhostMultiplier), pellet.duration); //reseta o multiplicador quando o tempo do powerpellet acaba
+        CancelInvoke(nameof(ResetGhostMultiplier));
+        Invoke(nameof(ResetGhostMultiplier), pellet.duration);
     }
 
     private bool HasRemainingPellets()
     {
         foreach (Transform pellet in pellets)
         {
-            if (pellet.gameObject.activeSelf) { //verifica se todos os pellets foram comidos
+            if (pellet.gameObject.activeSelf)
+            {
                 return true;
             }
         }
@@ -156,4 +171,9 @@ public class GameManager : MonoBehaviour
         ghostMultiplier = 1;
     }
 
+    // Método para obter a pontuação do jogador
+    public int GetPlayerScore()
+    {
+        return PlayerPrefs.GetInt(ScorePlayerPrefsKey, 0);
+    }
 }

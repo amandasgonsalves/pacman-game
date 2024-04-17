@@ -418,8 +418,12 @@ PrefabInstance:
       objectReference: {fileID: 994717976}
     - target: {fileID: 9176585051845292966, guid: 8398b287235293d469d1683369c48531, type: 3}
       propertyPath: duration
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 9176585051845292966, guid: 8398b287235293d469d1683369c48531, type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1566492903}
     - target: {fileID: 9176585051845292966, guid: 8398b287235293d469d1683369c48531, type: 3}
       propertyPath: useGreedySearch
       value: 1
@@ -497,6 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 469897152}
   - component: {fileID: 469897151}
+  - component: {fileID: 469897153}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -541,6 +546,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &469897153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469897150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8d3d40b6f89f64fa77f45a96deb7de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &512613666
 GameObject:
   m_ObjectHideFlags: 0
@@ -7663,8 +7680,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3166773749397671869, guid: 0d1f951e4ac24fe478d688dbf86a5c39, type: 3}
       propertyPath: duration
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 3166773749397671869, guid: 0d1f951e4ac24fe478d688dbf86a5c39, type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 2107185094}
     - target: {fileID: 3166773749397671869, guid: 0d1f951e4ac24fe478d688dbf86a5c39, type: 3}
       propertyPath: useGreedySearch
       value: 1
@@ -7846,6 +7867,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2336075042848322188, guid: 25f5544974e8f0b409f1c5070cbb2c0e, type: 3}
+      propertyPath: m_Simulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336075042848322188, guid: 25f5544974e8f0b409f1c5070cbb2c0e, type: 3}
+      propertyPath: m_SleepingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812181652065734045, guid: 25f5544974e8f0b409f1c5070cbb2c0e, type: 3}
+      propertyPath: duration
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4977623894487139863, guid: 25f5544974e8f0b409f1c5070cbb2c0e, type: 3}
       propertyPath: duration
       value: 40
@@ -7854,6 +7887,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4977623894487139863, guid: 25f5544974e8f0b409f1c5070cbb2c0e, type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 467728135}
     - target: {fileID: 4977623894487139863, guid: 25f5544974e8f0b409f1c5070cbb2c0e, type: 3}
       propertyPath: useGreedySearch
       value: 1
@@ -7882,6 +7919,10 @@ PrefabInstance:
       propertyPath: outside
       value: 
       objectReference: {fileID: 918157309}
+    - target: {fileID: 8971009504729605341, guid: 25f5544974e8f0b409f1c5070cbb2c0e, type: 3}
+      propertyPath: duration
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10662,8 +10703,16 @@ PrefabInstance:
       objectReference: {fileID: 994717976}
     - target: {fileID: 8958176567395280435, guid: 87e861fcfe4201c4d8213cba69c0f024, type: 3}
       propertyPath: duration
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8958176567395280435, guid: 87e861fcfe4201c4d8213cba69c0f024, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958176567395280435, guid: 87e861fcfe4201c4d8213cba69c0f024, type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 2109977863}
     - target: {fileID: 8958176567395280435, guid: 87e861fcfe4201c4d8213cba69c0f024, type: 3}
       propertyPath: useGreedySearch
       value: 1
