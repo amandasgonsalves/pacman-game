@@ -11,28 +11,14 @@ public class MenuManager : MonoBehaviour
 
     public void level2()
     {
-        if (PlayerPrefs.GetInt("PlayerScore", 0) >= 200)
-        {
-            SceneManager.LoadScene("Pacman_level2");
-        }
-        else
-        {
-            Debug.Log("Pontuação insuficiente para acessar o nível 2.");
-            // Exibir uma mensagem ao jogador informando que a pontuação mínima não foi atingida
-        }
+        StartCoroutine(LoadSceneAfterDelay("Pacman_level2", 0f));
     }
 
     public void level3()
     {
-        if (PlayerPrefs.GetInt("PlayerScore", 0) >= 500)
-        {
-            SceneManager.LoadScene("Pacman_level3");
-        }
-        else
-        {
-            Debug.Log("Pontuação insuficiente para acessar o nível 3.");
-            // Exibir uma mensagem ao jogador informando que a pontuação mínima não foi atingida
-        }
+ 
+        SceneManager.LoadScene("Pacman_level3");
+
     }
 
     private IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
