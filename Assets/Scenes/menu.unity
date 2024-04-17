@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 232769096}
   - component: {fileID: 232769095}
   - component: {fileID: 232769094}
-  - component: {fileID: 232769097}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -217,24 +216,6 @@ Transform:
   - {fileID: 807984744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &232769097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232769093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2bf445c53cf5dd43bb5f47ad6f11f59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ghosts: []
-  pacman: {fileID: 0}
-  pellets: {fileID: 0}
-  gameOverText: {fileID: 0}
-  scoreText: {fileID: 0}
-  livesText: {fileID: 0}
 --- !u!1 &507516774
 GameObject:
   m_ObjectHideFlags: 0
