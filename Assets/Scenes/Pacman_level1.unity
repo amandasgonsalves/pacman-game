@@ -685,7 +685,7 @@ PrefabInstance:
       objectReference: {fileID: 994717976}
     - target: {fileID: 9176585051845292966, guid: 8398b287235293d469d1683369c48531, type: 3}
       propertyPath: duration
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9176585051845292966, guid: 8398b287235293d469d1683369c48531, type: 3}
       propertyPath: reference
@@ -8010,7 +8010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3166773749397671869, guid: 0d1f951e4ac24fe478d688dbf86a5c39, type: 3}
       propertyPath: duration
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3166773749397671869, guid: 0d1f951e4ac24fe478d688dbf86a5c39, type: 3}
       propertyPath: reference
@@ -8211,7 +8211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977623894487139863, guid: 25f5544974e8f0b409f1c5070cbb2c0e, type: 3}
       propertyPath: duration
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4977623894487139863, guid: 25f5544974e8f0b409f1c5070cbb2c0e, type: 3}
       propertyPath: m_Enabled
@@ -11036,7 +11036,7 @@ PrefabInstance:
       objectReference: {fileID: 994717976}
     - target: {fileID: 8958176567395280435, guid: 87e861fcfe4201c4d8213cba69c0f024, type: 3}
       propertyPath: duration
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8958176567395280435, guid: 87e861fcfe4201c4d8213cba69c0f024, type: 3}
       propertyPath: m_Enabled
@@ -11067,7 +11067,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019805893}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ed39e92baa29544b886d209161439db, type: 3}
   m_Name: 
